@@ -1,5 +1,8 @@
 package com.splitwise.clone.controller;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,11 @@ public class SplitwiseController {
 	@PostMapping("/savePersonDetails")
 	public Person savePersonDetails(@RequestBody Person person) {
 		return splitwiseService.insertPersonDetails(person);
+	}
+	
+	@GetMapping("/getAllPersonDetails")
+	public List<Person> getAllPersonDetails() {
+		return splitwiseService.getAllPersonDetails();
 	}
 
 }
