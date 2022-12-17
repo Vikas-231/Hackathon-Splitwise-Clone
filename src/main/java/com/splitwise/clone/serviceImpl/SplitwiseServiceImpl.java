@@ -76,7 +76,7 @@ public class SplitwiseServiceImpl implements SplitwiseService {
 	public List<Transaction> getAllTxnDetails() {
 		ArrayList<TransactionEntity> txnEntityList = (ArrayList<TransactionEntity>) txnRepository.findAll();
 		ArrayList<Transaction> txnList = (ArrayList<Transaction>) txnEntityList.stream()
-				.map(e -> new Transaction(e.getTxnId(), e.getPersonId(), e.getAmount(), null))
+				.map(e -> new Transaction(e.getTxnId(), e.getPersonId(), e.getAmount(), null,null))
 				.collect(Collectors.toList());
 		return txnList;
 	}
