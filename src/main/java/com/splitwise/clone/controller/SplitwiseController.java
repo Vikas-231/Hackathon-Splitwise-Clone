@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.splitwise.clone.model.Person;
+import com.splitwise.clone.model.Transaction;
 import com.splitwise.clone.service.SplitwiseService;
 
 @RestController
@@ -29,6 +30,16 @@ public class SplitwiseController {
 	@GetMapping("/getAllPersonDetails")
 	public List<Person> getAllPersonDetails() {
 		return splitwiseService.getAllPersonDetails();
+	}
+	
+	@PostMapping("/saveTxnDetails")
+	public Boolean saveTxnDetails(@RequestBody Transaction transaction) {
+		return splitwiseService.addTransaction(transaction);
+	}
+	
+	@GetMapping("/getAllTxnDetails")
+	public List<Transaction> getAllTxnDetails() {
+		return splitwiseService.getAllTxnDetails();
 	}
 
 }
